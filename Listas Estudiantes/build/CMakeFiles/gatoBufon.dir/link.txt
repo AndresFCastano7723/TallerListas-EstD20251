@@ -1,0 +1,3 @@
+D:\Programas\cmake-4.0.2-windows-x86_64\cmake-4.0.2-windows-x86_64\bin\cmake.exe -E rm -f CMakeFiles\gatoBufon.dir/objects.a
+C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\gatoBufon.dir/objects.a @CMakeFiles\gatoBufon.dir\objects1.rsp
+C:\msys64\ucrt64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\gatoBufon.dir/objects.a -Wl,--no-whole-archive -o gatoBufon.exe -Wl,--out-implib,libgatoBufon.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\gatoBufon.dir\linkLibs.rsp

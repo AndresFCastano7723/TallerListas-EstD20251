@@ -1,0 +1,3 @@
+D:/Repositories/VS Code/C++/TallerListas-EstD20251/build/CMakeFiles/gatoBufon.dir
+D:/Repositories/VS Code/C++/TallerListas-EstD20251/build/CMakeFiles/edit_cache.dir
+D:/Repositories/VS Code/C++/TallerListas-EstD20251/build/CMakeFiles/rebuild_cache.dir
