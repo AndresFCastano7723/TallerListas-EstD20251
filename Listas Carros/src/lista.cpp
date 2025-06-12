@@ -1,5 +1,5 @@
 #include "lista.h"
-#include "producto.h"
+#include "cancion.h"
 #include <iostream>
 #include <fstream>
 using std::ifstream;
@@ -39,7 +39,7 @@ void lista::setUltimo(nodo* n) {
     ultimo = n;
 }
 
-void lista::insertarAlFinal(producto d) {
+void lista::insertarAlFinal(cancion d) {
     nodo* miau = new nodo(d);
     if (getPrimero() == nullptr) {
         setPrimero(miau);
@@ -51,7 +51,7 @@ void lista::insertarAlFinal(producto d) {
     }
 }
 
-void lista::insertarAlInicio(producto d) {
+void lista::insertarAlInicio(cancion d) {
     nodo* miau = new nodo(d);
     if (getPrimero() == nullptr) {
         setPrimero(miau);
@@ -63,7 +63,7 @@ void lista::insertarAlInicio(producto d) {
     }
 }
 
-void lista::eliminar(producto d) {
+void lista::eliminar(cancion d) {
     nodo* miau = getPrimero();
     while (miau != nullptr) {
         if (miau->getDato().getNombre() == d.getNombre()) {
@@ -99,23 +99,38 @@ void lista::imprimir(){
     
 }
 
-void lista::ordenarPrecio(producto d) {
-    if (getPrimero() == nullptr || getPrimero()->getSiguiente() == nullptr) {
+void lista::leerArch(lista &l, const string &nomArch) {
+    ifstream entrada(nomArch);
+    string n;
+    int id;
+    if (!entrada) {
+        cout << "El archivo " << nomArch << " no se encontró :(\n";
         return;
     }
-
-    bool ojo;
-    do {
-        ojo = false;
-        nodo* cuak = getPrimero();
-        while (cuak->getSiguiente() != nullptr) {
-            if (cuak->getDato().getPrecio() > cuak->getSiguiente()->getDato().getPrecio()) {
-                producto temp = cuak->getDato();
-                cuak->setDato(cuak->getSiguiente()->getDato());
-                cuak->getSiguiente()->setDato(temp);
-                ojo = true;
-            }
-            cuak = cuak->getSiguiente();
+    while (entrada >> n >> id) {
+        cancion rawr(n, id);
+        if (l.getPrimero() == nullptr) {
+            l.insertarAlInicio(rawr);
+        } else {
+            l.insertarAlFinal(rawr);
         }
-    } while (ojo);
+        cout << "Cancion " << n << " (ID: " << id << ") anadida a la lista." << endl;
+    }
+    entrada.close();
+    cout << "MIAU :3" << endl;
+}
+
+void lista::guardarArch(lista &l, const string &nomArch){
+    ofstream salida(nomArch);
+    if (!salida) {
+        cout << "No se pudo abrir el archivo " << nomArch << " para escritura :(\n";
+        return;
+    }
+    nodo* miau = l.getPrimero();
+    while (miau != nullptr) {
+        salida << miau->getDato().getNombre() << "\t" << miau->getDato().getCodigo() << endl;
+        miau = miau->getSiguiente();
+    }
+    salida.close();
+    cout << "Datos guardados en " << nomArch << " :)" << endl;
 }

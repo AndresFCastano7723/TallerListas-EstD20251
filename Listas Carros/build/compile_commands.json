@@ -1,0 +1,8 @@
+[
+{
+  "directory": "D:/Repositories/VS Code/C++/TallerListas-EstD20251/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/gatoBufon.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\gatoBufon.dir\\src\\main.cpp.obj -c \"D:\\Repositories\\VS Code\\C++\\TallerListas-EstD20251\\src\\main.cpp\"",
+  "file": "D:/Repositories/VS Code/C++/TallerListas-EstD20251/src/main.cpp",
+  "output": "CMakeFiles/gatoBufon.dir/src/main.cpp.obj"
+}
+]

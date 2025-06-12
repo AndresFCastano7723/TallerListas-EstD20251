@@ -1,11 +1,9 @@
 #ifndef LISTA_H
 #define LISTA_H
 #include "nodo.h"
-#include "cancion.h"
-#include <string>
-using std::string;
+#include "producto.h"
 
-class lista {
+struct lista {
 private:
     nodo* primero;
     nodo* ultimo;
@@ -16,12 +14,11 @@ public:
     nodo* getUltimo();
     void setPrimero(nodo* n);
     void setUltimo(nodo* n);
-    void insertarAlFinal(cancion d);
-    void insertarAlInicio(cancion d);
-    void eliminar(cancion d);
+    void insertarAlFinal(producto d);
+    void insertarAlInicio(producto d);
+    void eliminar(producto d);
     void imprimir();
-    void leerArch(lista &l, const string &nomArch);
-    void guardarArch(lista &l, const string &nomArch);
+    void ordenarPrecio(producto d);    
 };
 
 
